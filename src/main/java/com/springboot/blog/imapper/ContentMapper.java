@@ -1,0 +1,17 @@
+package com.springboot.blog.imapper;
+
+import om.springboot.blog.beans.Content;
+
+public interface ContentMapper {
+    int deleteByPrimaryKey(Integer conId);
+
+    int insert(Content record);
+
+    int insertSelective(Content record);
+
+    Content selectByPrimaryKey(Integer conId);
+
+    int updateByPrimaryKeySelective(Content record);
+
+    int updateByPrimaryKey(Content record);
+}

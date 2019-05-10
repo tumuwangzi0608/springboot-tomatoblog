@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.blog.imapper.TypeMapper">
+  <resultMap id="BaseResultMap" type="om.springboot.blog.beans.Type">
+    <id column="type_id" jdbcType="INTEGER" property="typeId" />
+    <result column="type_cont" jdbcType="VARCHAR" property="typeCont" />
+    <result column="type_creat_time" jdbcType="TIMESTAMP" property="typeCreatTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    type_id, type_cont, type_creat_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TYPE
+    where type_id = #{typeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from TYPE
+    where type_id = #{typeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="om.springboot.blog.beans.Type">
+    insert into TYPE (type_id, type_cont, type_creat_time
+      )
+    values (#{typeId,jdbcType=INTEGER}, #{typeCont,jdbcType=VARCHAR}, #{typeCreatTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="om.springboot.blog.beans.Type">
+    insert into TYPE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="typeId != null">
+        type_id,
+      </if>
+      <if test="typeCont != null">
+        type_cont,
+      </if>
+      <if test="typeCreatTime != null">
+        type_creat_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="typeId != null">
+        #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="typeCont != null">
+        #{typeCont,jdbcType=VARCHAR},
+      </if>
+      <if test="typeCreatTime != null">
+        #{typeCreatTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="om.springboot.blog.beans.Type">
+    update TYPE
+    <set>
+      <if test="typeCont != null">
+        type_cont = #{typeCont,jdbcType=VARCHAR},
+      </if>
+      <if test="typeCreatTime != null">
+        type_creat_time = #{typeCreatTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where type_id = #{typeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="om.springboot.blog.beans.Type">
+    update TYPE
+    set type_cont = #{typeCont,jdbcType=VARCHAR},
+      type_creat_time = #{typeCreatTime,jdbcType=TIMESTAMP}
+    where type_id = #{typeId,jdbcType=INTEGER}
+  </update>
+</mapper>
