@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.springboot.blog.imapper.ContentMapper">
-  <resultMap id="BaseResultMap" type="om.springboot.blog.beans.Content">
+  <resultMap id="BaseResultMap" type="com.springboot.blog.beans.Content">
     <id column="con_id" jdbcType="INTEGER" property="conId" />
     <result column="con_content" jdbcType="VARCHAR" property="conContent" />
   </resultMap>
-  <sql id="Base_Column_List">
-    con_id, con_content
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from CONTENT
-    where con_id = #{conId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from CONTENT
-    where con_id = #{conId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="om.springboot.blog.beans.Content">
-    insert into CONTENT (con_id, con_content)
-    values (#{conId,jdbcType=INTEGER}, #{conContent,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="om.springboot.blog.beans.Content">
-    insert into CONTENT
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="conId != null">
-        con_id,
-      </if>
-      <if test="conContent != null">
-        con_content,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="conId != null">
-        #{conId,jdbcType=INTEGER},
-      </if>
-      <if test="conContent != null">
-        #{conContent,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="om.springboot.blog.beans.Content">
-    update CONTENT
-    <set>
-      <if test="conContent != null">
-        con_content = #{conContent,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where con_id = #{conId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="om.springboot.blog.beans.Content">
-    update CONTENT
-    set con_content = #{conContent,jdbcType=VARCHAR}
-    where con_id = #{conId,jdbcType=INTEGER}
-  </update>
+  <!--<sql id="Base_Column_List">-->
+    <!--con_id, con_content-->
+  <!--</sql>-->
+  <!--<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">-->
+    <!--select -->
+    <!--<include refid="Base_Column_List" />-->
+    <!--from CONTENT-->
+    <!--where con_id = #{conId,jdbcType=INTEGER}-->
+  <!--</select>-->
+  <!--<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">-->
+    <!--delete from CONTENT-->
+    <!--where con_id = #{conId,jdbcType=INTEGER}-->
+  <!--</delete>-->
+  <!--<insert id="insert" parameterType="om.springboot.blog.beans.Content">-->
+    <!--insert into CONTENT (con_id, con_content)-->
+    <!--values (#{conId,jdbcType=INTEGER}, #{conContent,jdbcType=VARCHAR})-->
+  <!--</insert>-->
+  <!--<insert id="insertSelective" parameterType="om.springboot.blog.beans.Content">-->
+    <!--insert into CONTENT-->
+    <!--<trim prefix="(" suffix=")" suffixOverrides=",">-->
+      <!--<if test="conId != null">-->
+        <!--con_id,-->
+      <!--</if>-->
+      <!--<if test="conContent != null">-->
+        <!--con_content,-->
+      <!--</if>-->
+    <!--</trim>-->
+    <!--<trim prefix="values (" suffix=")" suffixOverrides=",">-->
+      <!--<if test="conId != null">-->
+        <!--#{conId,jdbcType=INTEGER},-->
+      <!--</if>-->
+      <!--<if test="conContent != null">-->
+        <!--#{conContent,jdbcType=VARCHAR},-->
+      <!--</if>-->
+    <!--</trim>-->
+  <!--</insert>-->
+  <!--<update id="updateByPrimaryKeySelective" parameterType="om.springboot.blog.beans.Content">-->
+    <!--update CONTENT-->
+    <!--<set>-->
+      <!--<if test="conContent != null">-->
+        <!--con_content = #{conContent,jdbcType=VARCHAR},-->
+      <!--</if>-->
+    <!--</set>-->
+    <!--where con_id = #{conId,jdbcType=INTEGER}-->
+  <!--</update>-->
+  <!--<update id="updateByPrimaryKey" parameterType="om.springboot.blog.beans.Content">-->
+    <!--update CONTENT-->
+    <!--set con_content = #{conContent,jdbcType=VARCHAR}-->
+    <!--where con_id = #{conId,jdbcType=INTEGER}-->
+  <!--</update>-->
 </mapper>

@@ -1,6 +1,6 @@
 package com.springboot.blog.imapper;
 
-import om.springboot.blog.beans.Content;
+import com.springboot.blog.beans.Content;
 
 public interface ContentMapper {
     int deleteByPrimaryKey(Integer conId);

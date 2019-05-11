@@ -1,6 +1,6 @@
 package com.springboot.blog.imapper;
 
-import om.springboot.blog.beans.Message;
+import com.springboot.blog.beans.Message;
 
 public interface MessageMapper {
     int deleteByPrimaryKey(Integer messId);

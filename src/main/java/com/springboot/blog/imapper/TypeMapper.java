@@ -1,6 +1,6 @@
 package com.springboot.blog.imapper;
 
-import om.springboot.blog.beans.Type;
+import com.springboot.blog.beans.Type;
 
 public interface TypeMapper {
     int deleteByPrimaryKey(Integer typeId);

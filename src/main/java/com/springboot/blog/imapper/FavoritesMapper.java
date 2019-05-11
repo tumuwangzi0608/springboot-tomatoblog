@@ -1,6 +1,6 @@
 package com.springboot.blog.imapper;
 
-import om.springboot.blog.beans.Favorites;
+import com.springboot.blog.beans.Favorites;
 
 public interface FavoritesMapper {
     int deleteByPrimaryKey(Integer favoId);

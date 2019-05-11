@@ -1,6 +1,6 @@
 package com.springboot.blog.imapper;
 
-import om.springboot.blog.beans.Blog;
+import com.springboot.blog.beans.Blog;
 
 public interface BlogMapper {
     int deleteByPrimaryKey(Integer blogId);

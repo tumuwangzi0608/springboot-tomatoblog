@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.springboot.blog.imapper.BlogMapper">
-  <resultMap id="BaseResultMap" type="om.springboot.blog.beans.Blog">
+  <resultMap id="BaseResultMap" type="com.springboot.blog.beans.Blog">
     <id column="blog_id" jdbcType="INTEGER" property="blogId" />
     <result column="blog_title" jdbcType="VARCHAR" property="blogTitle" />
     <result column="blog_creat_time" jdbcType="TIMESTAMP" property="blogCreatTime" />
@@ -11,119 +11,119 @@
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="type_id" jdbcType="INTEGER" property="typeId" />
   </resultMap>
-  <sql id="Base_Column_List">
-    blog_id, blog_title, blog_creat_time, blog_earnings, blog_favotimes, blog_showtimes, 
-    user_id, type_id
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from BLOG
-    where blog_id = #{blogId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from BLOG
-    where blog_id = #{blogId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="om.springboot.blog.beans.Blog">
-    insert into BLOG (blog_id, blog_title, blog_creat_time, 
-      blog_earnings, blog_favotimes, blog_showtimes, 
-      user_id, type_id)
-    values (#{blogId,jdbcType=INTEGER}, #{blogTitle,jdbcType=VARCHAR}, #{blogCreatTime,jdbcType=TIMESTAMP}, 
-      #{blogEarnings,jdbcType=DECIMAL}, #{blogFavotimes,jdbcType=INTEGER}, #{blogShowtimes,jdbcType=INTEGER}, 
-      #{userId,jdbcType=INTEGER}, #{typeId,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="om.springboot.blog.beans.Blog">
-    insert into BLOG
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="blogId != null">
-        blog_id,
-      </if>
-      <if test="blogTitle != null">
-        blog_title,
-      </if>
-      <if test="blogCreatTime != null">
-        blog_creat_time,
-      </if>
-      <if test="blogEarnings != null">
-        blog_earnings,
-      </if>
-      <if test="blogFavotimes != null">
-        blog_favotimes,
-      </if>
-      <if test="blogShowtimes != null">
-        blog_showtimes,
-      </if>
-      <if test="userId != null">
-        user_id,
-      </if>
-      <if test="typeId != null">
-        type_id,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="blogId != null">
-        #{blogId,jdbcType=INTEGER},
-      </if>
-      <if test="blogTitle != null">
-        #{blogTitle,jdbcType=VARCHAR},
-      </if>
-      <if test="blogCreatTime != null">
-        #{blogCreatTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="blogEarnings != null">
-        #{blogEarnings,jdbcType=DECIMAL},
-      </if>
-      <if test="blogFavotimes != null">
-        #{blogFavotimes,jdbcType=INTEGER},
-      </if>
-      <if test="blogShowtimes != null">
-        #{blogShowtimes,jdbcType=INTEGER},
-      </if>
-      <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
-      </if>
-      <if test="typeId != null">
-        #{typeId,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="om.springboot.blog.beans.Blog">
-    update BLOG
-    <set>
-      <if test="blogTitle != null">
-        blog_title = #{blogTitle,jdbcType=VARCHAR},
-      </if>
-      <if test="blogCreatTime != null">
-        blog_creat_time = #{blogCreatTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="blogEarnings != null">
-        blog_earnings = #{blogEarnings,jdbcType=DECIMAL},
-      </if>
-      <if test="blogFavotimes != null">
-        blog_favotimes = #{blogFavotimes,jdbcType=INTEGER},
-      </if>
-      <if test="blogShowtimes != null">
-        blog_showtimes = #{blogShowtimes,jdbcType=INTEGER},
-      </if>
-      <if test="userId != null">
-        user_id = #{userId,jdbcType=INTEGER},
-      </if>
-      <if test="typeId != null">
-        type_id = #{typeId,jdbcType=INTEGER},
-      </if>
-    </set>
-    where blog_id = #{blogId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="om.springboot.blog.beans.Blog">
-    update BLOG
-    set blog_title = #{blogTitle,jdbcType=VARCHAR},
-      blog_creat_time = #{blogCreatTime,jdbcType=TIMESTAMP},
-      blog_earnings = #{blogEarnings,jdbcType=DECIMAL},
-      blog_favotimes = #{blogFavotimes,jdbcType=INTEGER},
-      blog_showtimes = #{blogShowtimes,jdbcType=INTEGER},
-      user_id = #{userId,jdbcType=INTEGER},
-      type_id = #{typeId,jdbcType=INTEGER}
-    where blog_id = #{blogId,jdbcType=INTEGER}
-  </update>
+  <!--<sql id="Base_Column_List">-->
+    <!--blog_id, blog_title, blog_creat_time, blog_earnings, blog_favotimes, blog_showtimes, -->
+    <!--user_id, type_id-->
+  <!--</sql>-->
+  <!--<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">-->
+    <!--select -->
+    <!--<include refid="Base_Column_List" />-->
+    <!--from BLOG-->
+    <!--where blog_id = #{blogId,jdbcType=INTEGER}-->
+  <!--</select>-->
+  <!--<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">-->
+    <!--delete from BLOG-->
+    <!--where blog_id = #{blogId,jdbcType=INTEGER}-->
+  <!--</delete>-->
+  <!--<insert id="insert" parameterType="om.springboot.blog.beans.Blog">-->
+    <!--insert into BLOG (blog_id, blog_title, blog_creat_time, -->
+      <!--blog_earnings, blog_favotimes, blog_showtimes, -->
+      <!--user_id, type_id)-->
+    <!--values (#{blogId,jdbcType=INTEGER}, #{blogTitle,jdbcType=VARCHAR}, #{blogCreatTime,jdbcType=TIMESTAMP}, -->
+      <!--#{blogEarnings,jdbcType=DECIMAL}, #{blogFavotimes,jdbcType=INTEGER}, #{blogShowtimes,jdbcType=INTEGER}, -->
+      <!--#{userId,jdbcType=INTEGER}, #{typeId,jdbcType=INTEGER})-->
+  <!--</insert>-->
+  <!--<insert id="insertSelective" parameterType="om.springboot.blog.beans.Blog">-->
+    <!--insert into BLOG-->
+    <!--<trim prefix="(" suffix=")" suffixOverrides=",">-->
+      <!--<if test="blogId != null">-->
+        <!--blog_id,-->
+      <!--</if>-->
+      <!--<if test="blogTitle != null">-->
+        <!--blog_title,-->
+      <!--</if>-->
+      <!--<if test="blogCreatTime != null">-->
+        <!--blog_creat_time,-->
+      <!--</if>-->
+      <!--<if test="blogEarnings != null">-->
+        <!--blog_earnings,-->
+      <!--</if>-->
+      <!--<if test="blogFavotimes != null">-->
+        <!--blog_favotimes,-->
+      <!--</if>-->
+      <!--<if test="blogShowtimes != null">-->
+        <!--blog_showtimes,-->
+      <!--</if>-->
+      <!--<if test="userId != null">-->
+        <!--user_id,-->
+      <!--</if>-->
+      <!--<if test="typeId != null">-->
+        <!--type_id,-->
+      <!--</if>-->
+    <!--</trim>-->
+    <!--<trim prefix="values (" suffix=")" suffixOverrides=",">-->
+      <!--<if test="blogId != null">-->
+        <!--#{blogId,jdbcType=INTEGER},-->
+      <!--</if>-->
+      <!--<if test="blogTitle != null">-->
+        <!--#{blogTitle,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="blogCreatTime != null">-->
+        <!--#{blogCreatTime,jdbcType=TIMESTAMP},-->
+      <!--</if>-->
+      <!--<if test="blogEarnings != null">-->
+        <!--#{blogEarnings,jdbcType=DECIMAL},-->
+      <!--</if>-->
+      <!--<if test="blogFavotimes != null">-->
+        <!--#{blogFavotimes,jdbcType=INTEGER},-->
+      <!--</if>-->
+      <!--<if test="blogShowtimes != null">-->
+        <!--#{blogShowtimes,jdbcType=INTEGER},-->
+      <!--</if>-->
+      <!--<if test="userId != null">-->
+        <!--#{userId,jdbcType=INTEGER},-->
+      <!--</if>-->
+      <!--<if test="typeId != null">-->
+        <!--#{typeId,jdbcType=INTEGER},-->
+      <!--</if>-->
+    <!--</trim>-->
+  <!--</insert>-->
+  <!--<update id="updateByPrimaryKeySelective" parameterType="om.springboot.blog.beans.Blog">-->
+    <!--update BLOG-->
+    <!--<set>-->
+      <!--<if test="blogTitle != null">-->
+        <!--blog_title = #{blogTitle,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="blogCreatTime != null">-->
+        <!--blog_creat_time = #{blogCreatTime,jdbcType=TIMESTAMP},-->
+      <!--</if>-->
+      <!--<if test="blogEarnings != null">-->
+        <!--blog_earnings = #{blogEarnings,jdbcType=DECIMAL},-->
+      <!--</if>-->
+      <!--<if test="blogFavotimes != null">-->
+        <!--blog_favotimes = #{blogFavotimes,jdbcType=INTEGER},-->
+      <!--</if>-->
+      <!--<if test="blogShowtimes != null">-->
+        <!--blog_showtimes = #{blogShowtimes,jdbcType=INTEGER},-->
+      <!--</if>-->
+      <!--<if test="userId != null">-->
+        <!--user_id = #{userId,jdbcType=INTEGER},-->
+      <!--</if>-->
+      <!--<if test="typeId != null">-->
+        <!--type_id = #{typeId,jdbcType=INTEGER},-->
+      <!--</if>-->
+    <!--</set>-->
+    <!--where blog_id = #{blogId,jdbcType=INTEGER}-->
+  <!--</update>-->
+  <!--<update id="updateByPrimaryKey" parameterType="om.springboot.blog.beans.Blog">-->
+    <!--update BLOG-->
+    <!--set blog_title = #{blogTitle,jdbcType=VARCHAR},-->
+      <!--blog_creat_time = #{blogCreatTime,jdbcType=TIMESTAMP},-->
+      <!--blog_earnings = #{blogEarnings,jdbcType=DECIMAL},-->
+      <!--blog_favotimes = #{blogFavotimes,jdbcType=INTEGER},-->
+      <!--blog_showtimes = #{blogShowtimes,jdbcType=INTEGER},-->
+      <!--user_id = #{userId,jdbcType=INTEGER},-->
+      <!--type_id = #{typeId,jdbcType=INTEGER}-->
+    <!--where blog_id = #{blogId,jdbcType=INTEGER}-->
+  <!--</update>-->
 </mapper>
